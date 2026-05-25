@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  jupyterlab:
+    build: .
+    container_name: nl2sql2nl_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    env_file:
+      - .env
+    environment:
+      - JUPYTER_TOKEN=dev
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
