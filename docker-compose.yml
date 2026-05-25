@@ -10,8 +10,7 @@ services:
       - .:/home/jovyan/work
     env_file:
       - .env
-    environment:
-      - JUPYTER_TOKEN=dev
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
